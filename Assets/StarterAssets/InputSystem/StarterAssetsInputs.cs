@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool aim;
+		public bool shoot;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -46,9 +47,15 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
 		public void OnAim(InputValue value)
 		{
 			AimInput(value.isPressed);
+		}
+
+		public void OnShoot(InputValue value)
+		{
+			ShootInput(value.isPressed);
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -78,6 +85,11 @@ namespace StarterAssets
 		public void AimInput(bool newAimState)
 		{
 			aim = newAimState;
+		}
+
+		public void ShootInput(bool newShoot)
+		{
+			shoot = newShoot;
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

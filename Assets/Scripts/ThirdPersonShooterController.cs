@@ -22,6 +22,12 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField]
     private Transform debugTransform;
 
+    [SerializeField]
+    private Transform pfBulletProjectile;
+
+    [SerializeField]
+    private Transform spawnBulletposition;
+
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
 
@@ -68,6 +74,12 @@ public class ThirdPersonShooterController : MonoBehaviour
             thirdPersonController.SetRotateOnMove(true);
         }
 
+        if (starterAssetsInputs.shoot)
+        {
+            Vector3 aimDir = (mouseWorldPosition - spawnBulletposition.position).normalized;
+            Instantiate(pfBulletProjectile, spawnBulletposition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            starterAssetsInputs.shoot = false;
+        }
        
     }
 }

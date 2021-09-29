@@ -21,12 +21,14 @@ public class Mouse3D : MonoBehaviour
             transform.position = raycastHit.point;
         }
     }
-
+     // Static function for mouse world position
     public static Vector3 GetMouseWorldPosition() => Instance.GetMouseWorldPosition_Instance();
 
+    // Getting Mouse positionf from world
     private Vector3 GetMouseWorldPosition_Instance()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if(Physics.Raycast(ray, out RaycastHit raycastHit, 999f, mouseColliderLayerMask))
         {
             return raycastHit.point;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Mouse3D : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class Mouse3D : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // Getting position using the Unity Input System
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
         if(Physics.Raycast(ray, out RaycastHit raycastHit, 999f, mouseColliderLayerMask))
         {
             transform.position = raycastHit.point;
@@ -27,7 +30,7 @@ public class Mouse3D : MonoBehaviour
     // Getting Mouse positionf from world
     private Vector3 GetMouseWorldPosition_Instance()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if(Physics.Raycast(ray, out RaycastHit raycastHit, 999f, mouseColliderLayerMask))
         {

@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d22037e22945a4d8e3c08ba3e910e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PingWorld: {fileID: 5844722961968018025, guid: dd428657aff24a4458f0536e1d3684a7,
+  PingWorld: {fileID: 4606846730421311452, guid: dd428657aff24a4458f0536e1d3684a7,
     type: 3}

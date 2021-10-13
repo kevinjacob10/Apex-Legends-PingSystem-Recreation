@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PingWorld: {fileID: 4606846730421311452, guid: dd428657aff24a4458f0536e1d3684a7,
     type: 3}
+  PingUI: {fileID: 2656731833510004841, guid: 78c0dfcdc22829d45ac6843149751d34, type: 3}

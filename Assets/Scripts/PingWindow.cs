@@ -11,9 +11,9 @@ public class PingWindow : MonoBehaviour
         instance = this;
     }
 
-    public static void AddPing(Vector3 position)
+    public static void AddPing(PingSystem.Ping ping)
     {
         Transform pingUItransform = Instantiate(GameAssets.i.PingUI, instance.transform);
-        pingUItransform.GetComponent<PingUIHandler>().Setup(position);
+        pingUItransform.GetComponent<PingUIHandler>().Setup(ping);
     }
 }

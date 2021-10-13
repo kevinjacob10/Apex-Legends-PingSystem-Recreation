@@ -15,5 +15,11 @@ public class GameAssets : MonoBehaviour
     }
 
     public Transform PingWorld;
-    //public Transform PingUI;
+    public Transform PingUI;
+
+    public Color pingMoveColour;
+    public Color pingEnemyColour;
+
+    public Sprite pingMoveSprite;
+    public Sprite pingEnemySprite;
 }

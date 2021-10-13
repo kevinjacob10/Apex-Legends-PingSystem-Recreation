@@ -8,11 +8,11 @@ public class PingDistanceHandler : MonoBehaviour
     [SerializeField]
     private GameObject Player;
 
-    private TextMeshPro distanceText;
+    private TextMeshProUGUI distanceText;
 
     private void Awake()
     {
-        distanceText = GetComponent<TextMeshPro>();
+        distanceText = GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()

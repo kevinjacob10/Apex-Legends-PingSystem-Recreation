@@ -43,6 +43,7 @@ public class PingUIHandler : MonoBehaviour
     private void Update()
     {
         // To get screen coordinates
+        if (ping == null) return;
         Vector3 pingScreenCoordinates = Camera.main.WorldToScreenPoint(ping.GetPosition());
         bool isOffScreen = pingScreenCoordinates.x > Screen.width || 
                            pingScreenCoordinates.x < 0 || pingScreenCoordinates.y > Screen.height ||

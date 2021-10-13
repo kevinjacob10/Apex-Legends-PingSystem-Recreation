@@ -2,16 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 
 public static class PingSystem
 {
     private const float Move_Enemy_Double_Click_Time = 0.05f;
+    private const float Ping_Button_Held_Down_Time = 1f;
+
     private static float lastPingTime;
     private static Ping lastPing;
 
     private static List<Ping> pingList;
+    private static float pingButtonHoldDownTimer;
 
     public static void Initialize()
     {
@@ -38,9 +42,16 @@ public static class PingSystem
         {
             AddPing(new Ping(Ping.Type.Move, position));
         }
-           
+         
     }
-    
+
+    //Destroys recent ping
+    public static void DestroyLastPing()
+    {
+        DestroyPing(lastPing);
+    }
+
+    //Destroys ping
     public static void DestroyPing(Ping ping)
     {
         ping.SelfDestroy();
@@ -61,18 +72,18 @@ public static class PingSystem
                 break;
 
                 case Ping.Type.Enemy:
-                pingTransform.GetComponent<SpriteRenderer>().sprite = GameAssets.i.pingEnemySprite;
-                pingTransform.Find("distanceText").GetComponent<TextMeshPro>().color = GameAssets.i.pingEnemyColour;
+                //pingTransform.GetComponent<SpriteRenderer>().sprite = GameAssets.i.pingEnemySprite;
+               // pingTransform.Find("distanceText").GetComponent<TextMeshPro>().color = GameAssets.i.pingEnemyColour;
                 break;
 
         }
 
         ping.OnDestroyed += delegate (object sender, EventArgs e)
         {
-            UnityEngine.Object.Destroy(pingTransform);
+            UnityEngine.Object.Destroy(pingTransform.gameObject);
         };
 
-        PingWindow.AddPing(ping);
+        PingWindow.instance.AddPing(ping);
 
         lastPing = ping;
         lastPingTime = Time.time;
@@ -93,6 +104,26 @@ public static class PingSystem
         }
     }
 
+    public static void PingButtonHeldDown()
+    {
+        pingButtonHoldDownTimer += Time.deltaTime;
+
+        // Show the ping wheel
+        if(pingButtonHoldDownTimer > Ping_Button_Held_Down_Time)
+        {
+            if (!PingWheel.IsVisibleStatic())
+            {
+                PingWheel.ShowStatic(Mouse3D.GetMouseWorldPosition());
+            }
+        }
+    }
+
+    public static void PingButtonReleased()
+    {
+        pingButtonHoldDownTimer = 0f;
+    }
+
+    // Class for Ping variables and functions
     public class Ping 
     {
         public enum Type { 

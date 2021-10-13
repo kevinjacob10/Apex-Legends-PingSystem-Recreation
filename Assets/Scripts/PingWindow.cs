@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PingWindow : MonoBehaviour
 {
-    private static PingWindow instance;
+    public static PingWindow instance { get; private set; }
+
+    private Transform localPingWindow;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public static void AddPing(PingSystem.Ping ping)
+    private void Start()
     {
-        Transform pingUItransform = Instantiate(GameAssets.i.PingUI, instance.transform);
+        localPingWindow = LocalCanvas.Instance.pingWindow;
+    }
+
+    public void AddPing(PingSystem.Ping ping)
+    {
+        Debug.Log(GameAssets.i.PingUI);
+        if (localPingWindow == null) return;
+        Transform pingUItransform = Instantiate(GameAssets.i.PingUI, localPingWindow);
         pingUItransform.GetComponent<PingUIHandler>().Setup(ping);
     }
 }

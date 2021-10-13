@@ -59,7 +59,7 @@
                     "id": "b3bd429e-d3a2-4132-be52-d4fb0720bacf",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -287,7 +287,7 @@
                     "name": "",
                     "id": "6c9f6e64-6861-4ca2-93d4-96094bc0b32a",
                     "path": "<Mouse>/middleButton",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Ping",

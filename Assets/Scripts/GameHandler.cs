@@ -6,6 +6,9 @@ using StarterAssets;
 
 public class GameHandler : MonoBehaviour
 {
+
+    private InputActionReference actionReference;
+
     private void Start()
     {
    
@@ -17,9 +20,20 @@ public class GameHandler : MonoBehaviour
     }
     private void Update()
     {
+          
         if (Mouse.current.middleButton.wasPressedThisFrame)
         {
             PingSystem.AddPing(Mouse3D.GetMouseWorldPosition());
+        }
+
+        if (Mouse.current.middleButton.wasPressedThisFrame)
+        {
+            PingSystem.PingButtonHeldDown();
+        }
+
+        if (Mouse.current.middleButton.wasReleasedThisFrame)
+        {
+            PingSystem.PingButtonReleased();
         }
 
         PingSystem.Update();
@@ -28,5 +42,8 @@ public class GameHandler : MonoBehaviour
         {
             PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
         }
+
+        
     }
+
 }

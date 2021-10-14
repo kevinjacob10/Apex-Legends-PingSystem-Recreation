@@ -20,7 +20,6 @@ public class PingWindow : MonoBehaviour
 
     public void AddPing(PingSystem.Ping ping)
     {
-        Debug.Log(GameAssets.i.PingUI);
         if (localPingWindow == null) return;
         Transform pingUItransform = Instantiate(GameAssets.i.PingUI, localPingWindow);
         pingUItransform.GetComponent<PingUIHandler>().Setup(ping);

@@ -30,8 +30,8 @@ public class PingUIHandler : MonoBehaviour
             case PingSystem.Ping.Type.Move:
                 break;
             case PingSystem.Ping.Type.Enemy:
-                image.sprite = GameAssets.i.pingEnemySprite;
-                distanceText.color = GameAssets.i.pingEnemyColour;
+               // image.sprite = GameAssets.i.pingEnemySprite;
+               // distanceText.color = GameAssets.i.pingEnemyColour;
                 break;
         }
         ping.OnDestroyed += delegate (object sender, System.EventArgs e)
@@ -42,6 +42,7 @@ public class PingUIHandler : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(ping);
         // To get screen coordinates
         if (ping == null) return;
         Vector3 pingScreenCoordinates = Camera.main.WorldToScreenPoint(ping.GetPosition());
@@ -49,9 +50,11 @@ public class PingUIHandler : MonoBehaviour
                            pingScreenCoordinates.x < 0 || pingScreenCoordinates.y > Screen.height ||
                            pingScreenCoordinates.y < 0;
 
-        image.enabled = isOffScreen;
-        distanceText.enabled = isOffScreen;
+        //image.enabled = isOffScreen;
+        //distanceText.enabled = isOffScreen;
 
+        image.gameObject.SetActive(isOffScreen);
+        distanceText.gameObject.SetActive(isOffScreen);
 
         if (isOffScreen)
         {

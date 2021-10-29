@@ -7,6 +7,8 @@ using StarterAssets;
 public class GameHandler : MonoBehaviour
 {
 
+    private InputAction _input;
+
     private InputActionReference actionReference;
 
     private void Start()
@@ -42,7 +44,6 @@ public class GameHandler : MonoBehaviour
         {
             PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
         }
-
         
     }
 

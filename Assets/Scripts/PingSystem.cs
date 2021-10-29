@@ -61,7 +61,7 @@ public static class PingSystem
 
     public static void AddPing(Ping ping)
     {
-        Debug.Log(ping);
+        //Debug.Log(ping);
         pingList.Add(ping);
 
         Transform pingTransform = UnityEngine.Object.Instantiate(GameAssets.i.PingWorld, ping.GetPosition(), Quaternion.identity);

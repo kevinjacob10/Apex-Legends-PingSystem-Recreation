@@ -6,7 +6,7 @@ public class WorldSpaceCanvas : MonoBehaviour
 {
     private Canvas worldCanvas;
     
-    private void Awake()
+    private void Start()
     {
         worldCanvas = GetComponent<Canvas>();
         worldCanvas.worldCamera = LocalCanvas.Instance.EventCamera;

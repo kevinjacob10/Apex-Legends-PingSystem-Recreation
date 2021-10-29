@@ -5,7 +5,6 @@ using TMPro;
 
 public class PingDistanceHandler : MonoBehaviour
 {
-    [SerializeField]
     private GameObject Player;
 
     private TextMeshProUGUI distanceText;
@@ -13,16 +12,18 @@ public class PingDistanceHandler : MonoBehaviour
     private void Awake()
     {
         distanceText = GetComponent<TextMeshProUGUI>();
+        Player = FindObjectOfType <ThirdPersonShooterController>().gameObject;
     }
 
     private void Update()
     {
         // Ping is parent of distance text
-        Vector3 pingPosition = transform.parent.position;
+        Vector3 pingPosition = transform.parent.transform.position;
 
         Vector3 playerPosition = Player.transform.position;
 
-        int distance = Mathf.RoundToInt(Vector3.Distance(pingPosition, playerPosition) / 3f);
+        int distance = Mathf.RoundToInt(Vector3.Distance(pingPosition, playerPosition)/ 2f);
         distanceText.text = distance + "M";
+
     }
 }

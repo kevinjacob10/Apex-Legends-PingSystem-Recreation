@@ -59,7 +59,23 @@
                     "id": "b3bd429e-d3a2-4132-be52-d4fb0720bacf",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Ping Wheel",
+                    "type": "Button",
+                    "id": "752e089a-f5b6-4ad9-a74a-b29587f7bf69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Ping Wheel Released",
+                    "type": "Button",
+                    "id": "4264bc69-b1b4-483f-a2d9-848b638e978b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -287,7 +303,7 @@
                     "name": "",
                     "id": "6c9f6e64-6861-4ca2-93d4-96094bc0b32a",
                     "path": "<Mouse>/middleButton",
-                    "interactions": "Hold",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Ping",
@@ -298,10 +314,43 @@
                     "name": "",
                     "id": "9e525740-0ef3-497b-8cf9-cff85fe9128b",
                     "path": "<Keyboard>/f",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Ping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2989f730-5025-4c21-b2e5-704704783cc1",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Ping Wheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c5a8e5e-b420-4c90-a7a4-2d32f2b172da",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ping Wheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d69a1bbe-a659-40f6-901c-76ead7123fe8",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Ping Wheel Released",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

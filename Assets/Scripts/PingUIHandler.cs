@@ -71,7 +71,7 @@ public class PingUIHandler : MonoBehaviour
 
         if (isOffScreen)
         {
-            Debug.Log("Works");
+            //Debug.Log("Works");
             // Updates UI position
             Vector3 fromPosition = Camera.main.transform.position;
             //fromPosition.z = 0f;

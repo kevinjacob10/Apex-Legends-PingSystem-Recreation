@@ -6,8 +6,7 @@ using StarterAssets;
 
 public class GameHandler : MonoBehaviour
 {
-
-    private InputAction _input;
+    private PlayerInput playerInput;
 
     private InputActionReference actionReference;
 
@@ -18,33 +17,76 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         PingSystem.Initialize();
+
+        // For ping
+        PingStartAssets playerInputActions = new PingStartAssets();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Ping.performed += Ping;
+
+        // For ping wheel held down
+        PingWheelStartAssets pingWheelStartAssters = new PingWheelStartAssets();
+        pingWheelStartAssters.Enable();
+        pingWheelStartAssters.Player.PingWheel.performed += PingWheel;
+
+        // For ping wheel released
+        PingWheelReleasedStarterAssets pingWheelReleasedStarterAssetes = new PingWheelReleasedStarterAssets();
+        pingWheelReleasedStarterAssetes.Enable();
+        pingWheelReleasedStarterAssetes.Player.PingWheelReleased.performed += PingWheelReleased;
     }
     private void Update()
     {
           
-        if (Mouse.current.middleButton.wasPressedThisFrame)
-        {
-            PingSystem.AddPing(Mouse3D.GetMouseWorldPosition());
-        }
+        //if (Mouse.current.middleButton.wasPressedThisFrame)
+        //{
+        //    PingSystem.AddPing(Mouse3D.GetMouseWorldPosition());
+        //}
 
-        if (Mouse.current.middleButton.wasPressedThisFrame)
-        {
-            PingSystem.PingButtonHeldDown();
-        }
+        //if (Mouse.current.middleButton.wasPressedThisFrame)
+        //{
+        //    PingSystem.PingButtonHeldDown();
+        //}
 
-        if (Mouse.current.middleButton.wasReleasedThisFrame)
-        {
-            PingSystem.PingButtonReleased();
-        }
+        //if (Mouse.current.middleButton.wasReleasedThisFrame)
+        //{
+        //    PingSystem.PingButtonReleased();
+        //}
 
         PingSystem.Update();
 
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        //if (Keyboard.current.fKey.wasPressedThisFrame)
+        //{
+        //    PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
+        //}
+        
+    }
+
+    public void Ping(InputAction.CallbackContext context)
+    {
+        //Debug.Log(context);
+        if (context.performed)
         {
-            PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
+            PingSystem.AddPing(Mouse3D.GetMouseWorldPosition());
+        }
+    }
+
+    public void PingWheel(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PingSystem.PingButtonHeldDown();
+            Debug.Log("Middle mouse button is held down");
         }
         
     }
 
+    public void PingWheelReleased(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PingSystem.PingButtonReleased();
+            Debug.Log("Middle mouse button is released");
+        }
+    }
 }

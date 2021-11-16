@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 2656731833510004841}
+  pingTransform: {fileID: 0}
 --- !u!1 &3641975027363634125
 GameObject:
   m_ObjectHideFlags: 0

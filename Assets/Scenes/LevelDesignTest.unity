@@ -2654,7 +2654,7 @@ PrefabInstance:
     - target: {fileID: 2656731833510004841, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -270
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 2656731833510004841, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
@@ -2680,6 +2680,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641975027363634125, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778842080183052158, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988617258435439941, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624667768698196028, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -136.8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6677124694809922511, guid: 78c0dfcdc22829d45ac6843149751d34, type: 3}
@@ -2921,6 +2941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944336656033664796, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9078993845375825671, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -3653,6 +3678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873923889}
   - component: {fileID: 873923890}
+  - component: {fileID: 873923891}
   m_Layer: 5
   m_Name: PingWheel
   m_TagString: Untagged
@@ -3688,6 +3714,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873923888}
   m_CullTransparentMesh: 1
+--- !u!114 &873923891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873923888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc15b69f78872f4bbd574e6a753028f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &889782399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6160,7 +6198,7 @@ GameObject:
   - component: {fileID: 1550117323}
   - component: {fileID: 1550117322}
   m_Layer: 10
-  m_Name: Avatar-2031936253
+  m_Name: Wraith_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6206,7 +6244,7 @@ MonoBehaviour:
   sprint: 0
   aim: 0
   shoot: 0
-  analogMovement: 0
+  analogMovement: 1
   cursorLocked: 1
   cursorInputForLook: 1
 --- !u!114 &1550117324
@@ -8335,7 +8373,7 @@ GameObject:
   - component: {fileID: 1956437635}
   - component: {fileID: 1956437636}
   m_Layer: 5
-  m_Name: moveBtn
+  m_Name: MoveBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

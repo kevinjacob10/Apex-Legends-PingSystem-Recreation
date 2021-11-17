@@ -65,6 +65,7 @@ public static class PingSystem
         pingList.Add(ping);
 
         Transform pingTransform = UnityEngine.Object.Instantiate(GameAssets.i.PingWorld, ping.GetPosition(), Quaternion.identity);
+        ping.SetTransformLocalPingPosition(pingTransform);
 
         switch (ping.GetPingType())
         {
@@ -134,6 +135,7 @@ public static class PingSystem
 
         public event EventHandler OnDestroyed;
 
+        public Transform localPingPosition;
         private Type type;
         private Vector3 position;
         private bool isDestroyed;
@@ -173,6 +175,11 @@ public static class PingSystem
         public float GetDestroyTime()
         {
             return destroyTime;
+        }
+
+        public void SetTransformLocalPingPosition(Transform _localPingPosition)
+        {
+            localPingPosition = _localPingPosition;
         }
     }
 

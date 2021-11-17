@@ -80,7 +80,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""id"": ""752e089a-f5b6-4ad9-a74a-b29587f7bf69"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)""
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Ping Wheel Released"",
@@ -349,9 +349,9 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""name"": """",
                     ""id"": ""3c5a8e5e-b420-4c90-a7a4-2d32f2b172da"",
                     ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardMouse"",
                     ""action"": ""Ping Wheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

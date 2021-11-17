@@ -9,13 +9,12 @@ public class PingUIHandler : MonoBehaviour
     [SerializeField]
     private RectTransform rectTransform;
 
-    [SerializeField]
     private Transform pingTransform;
 
     private PingSystem.Ping ping;
 
     private Vector3 pingPosition;
-    private TextMeshPro distanceText;
+    private TextMeshProUGUI distanceText;
     private Image image;
 
 
@@ -26,12 +25,13 @@ public class PingUIHandler : MonoBehaviour
         Player = FindObjectOfType<ThirdPersonShooterController>().gameObject;
         rectTransform = transform.GetComponent<RectTransform>();
         image = transform.GetComponent<Image>();
-        distanceText = transform.Find("distanceText").GetComponent<TextMeshPro>();
+        distanceText = transform.Find("distanceText").GetComponent<TextMeshProUGUI>();
     }
 
-    public void Setup(PingSystem.Ping ping)
+    public void Setup(PingSystem.Ping _ping)
     {
-        this.ping = ping;
+        this.ping = _ping;
+        pingTransform = ping.localPingPosition;
 
         switch (ping.GetPingType())
         {
@@ -55,7 +55,7 @@ public class PingUIHandler : MonoBehaviour
         // To get screen coordinates
         //if (ping == null) return;
 
-        Vector3 pingScreenCoordinates = Camera.main.WorldToScreenPoint(pingTransform.position);
+        Vector3 pingScreenCoordinates = Camera.main.WorldToScreenPoint(pingTransform.position); 
 
         //Vector3 pingScreenCoordinates = Camera.main.WorldToScreenPoint(ping.GetPosition());
 
@@ -66,6 +66,7 @@ public class PingUIHandler : MonoBehaviour
         image.enabled = isOffScreen;
         distanceText.enabled = isOffScreen;
 
+        Debug.Log(distanceText.enabled);
         //image.gameObject.SetActive(isOffScreen);
         //distanceText.gameObject.SetActive(isOffScreen);
 

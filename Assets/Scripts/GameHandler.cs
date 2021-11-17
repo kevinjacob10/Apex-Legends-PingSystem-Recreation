@@ -10,6 +10,8 @@ public class GameHandler : MonoBehaviour
 
     private InputActionReference actionReference;
 
+    private bool isMiddleMouseButtonHeldDown;
+
     private void Start()
     {
    
@@ -29,6 +31,7 @@ public class GameHandler : MonoBehaviour
         PingWheelStartAssets pingWheelStartAssters = new PingWheelStartAssets();
         pingWheelStartAssters.Enable();
         pingWheelStartAssters.Player.PingWheel.performed += PingWheel;
+        //pingWheelStartAssters.Player.PingWheel.canceled += PingWheel;
 
         // For ping wheel released
         PingWheelReleasedStarterAssets pingWheelReleasedStarterAssetes = new PingWheelReleasedStarterAssets();
@@ -37,7 +40,7 @@ public class GameHandler : MonoBehaviour
     }
     private void Update()
     {
-          
+
         //if (Mouse.current.middleButton.wasPressedThisFrame)
         //{
         //    PingSystem.AddPing(Mouse3D.GetMouseWorldPosition());
@@ -48,7 +51,7 @@ public class GameHandler : MonoBehaviour
         //    PingSystem.PingButtonHeldDown();
         //}
 
-        //if (Mouse.current.middleButton.wasReleasedThisFrame)
+        ////if (Mouse.current.middleButton.wasReleasedThisFrame)
         //{
         //    PingSystem.PingButtonReleased();
         //}
@@ -71,6 +74,7 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    // Holds Middle Mouse button
     public void PingWheel(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -78,7 +82,7 @@ public class GameHandler : MonoBehaviour
             PingSystem.PingButtonHeldDown();
             Debug.Log("Middle mouse button is held down");
         }
-        
+
     }
 
     public void PingWheelReleased(InputAction.CallbackContext context)

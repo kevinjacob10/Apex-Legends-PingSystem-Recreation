@@ -10,11 +10,14 @@ public class PingWheel : MonoBehaviour
 
     private Vector3 pingPosition;
 
+    [SerializeField]
+    private Button_UI moveBtn;
+
     private void Awake()
     {
         instance = this;
 
-        transform.Find("MoveBtn").GetComponent<Button_UI>().ClickFunc = () =>
+        moveBtn.ClickFunc = () =>
         {
             PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Move, pingPosition));
         };
@@ -31,6 +34,7 @@ public class PingWheel : MonoBehaviour
 
     private void Hide()
     {
+        Debug.Log("Hide");
         gameObject.SetActive(false);
     }
 

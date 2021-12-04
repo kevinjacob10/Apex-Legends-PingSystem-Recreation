@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
 
     private InputActionReference actionReference;
 
-    private bool isMiddleMouseButtonHeldDown;
+    public bool isMiddleMouseButtonHeldDown;
 
     private void Start()
     {
@@ -30,16 +30,26 @@ public class GameHandler : MonoBehaviour
         // For ping wheel held down
         PingWheelStartAssets pingWheelStartAssters = new PingWheelStartAssets();
         pingWheelStartAssters.Enable();
-        pingWheelStartAssters.Player.PingWheel.performed += PingWheel;
+        pingWheelStartAssters.Player.PingWheel.performed += x => PingWheelPressed();
         //pingWheelStartAssters.Player.PingWheel.canceled += PingWheel;
 
         // For ping wheel released
         PingWheelReleasedStarterAssets pingWheelReleasedStarterAssetes = new PingWheelReleasedStarterAssets();
         pingWheelReleasedStarterAssetes.Enable();
-        pingWheelReleasedStarterAssetes.Player.PingWheelReleased.performed += PingWheelReleased;
+        pingWheelReleasedStarterAssetes.Player.PingWheelReleased.performed += x => PingWheelReleased();
     }
     private void Update()
     {
+        if (isMiddleMouseButtonHeldDown)
+        {
+            PingSystem.PingButtonHeldDown();
+            //Debug.Log("Middle mouse button is held down");
+        }
+        else
+        {
+            PingSystem.PingButtonReleased();
+            //Debug.Log("Middle mouse button is released");
+        }
 
         //if (Mouse.current.middleButton.wasPressedThisFrame)
         //{
@@ -62,6 +72,8 @@ public class GameHandler : MonoBehaviour
         //{
         //    PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
         //}
+
+        
         
     }
 
@@ -75,22 +87,16 @@ public class GameHandler : MonoBehaviour
     }
 
     // Holds Middle Mouse button
-    public void PingWheel(InputAction.CallbackContext context)
+    public void PingWheelPressed()
     {
-        if (context.performed)
-        {
-            PingSystem.PingButtonHeldDown();
-            Debug.Log("Middle mouse button is held down");
-        }
-
+        isMiddleMouseButtonHeldDown = true;
+        Debug.Log("Middle mouse button is held down");
     }
 
-    public void PingWheelReleased(InputAction.CallbackContext context)
+    // Releases Middle mouse Button
+    public void PingWheelReleased()
     {
-        if (context.performed)
-        {
-            PingSystem.PingButtonReleased();
-            Debug.Log("Middle mouse button is released");
-        }
+        isMiddleMouseButtonHeldDown = false; 
+        Debug.Log("Middle mouse button is released");
     }
 }

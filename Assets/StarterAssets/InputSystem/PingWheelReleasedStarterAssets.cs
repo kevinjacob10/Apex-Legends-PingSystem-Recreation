@@ -80,7 +80,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""id"": ""752e089a-f5b6-4ad9-a74a-b29587f7bf69"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold""
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Ping Wheel Released"",
@@ -338,7 +338,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""name"": """",
                     ""id"": ""2989f730-5025-4c21-b2e5-704704783cc1"",
                     ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Ping Wheel"",
@@ -349,7 +349,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""name"": """",
                     ""id"": ""3c5a8e5e-b420-4c90-a7a4-2d32f2b172da"",
                     ""path"": ""<Keyboard>/b"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Ping Wheel"",

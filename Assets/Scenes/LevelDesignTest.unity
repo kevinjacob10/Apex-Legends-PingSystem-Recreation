@@ -1003,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 1074773969693702561, guid: dd428657aff24a4458f0536e1d3684a7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4606846730421311452, guid: dd428657aff24a4458f0536e1d3684a7,
         type: 3}
@@ -1110,6 +1110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: far clip plane
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -1320,7 +1325,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2679,22 +2684,32 @@ PrefabInstance:
     - target: {fileID: 2880831230498026968, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3641975027363634125, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778842080183052158, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5600762391188517755, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -68
+      objectReference: {fileID: 0}
     - target: {fileID: 7988617258435439941, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137286763726353727, guid: 78c0dfcdc22829d45ac6843149751d34,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8624667768698196028, guid: 78c0dfcdc22829d45ac6843149751d34,
         type: 3}
@@ -3726,6 +3741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc15b69f78872f4bbd574e6a753028f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveBtn: {fileID: 1956437636}
 --- !u!1 &889782399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,6 +5620,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246091993}
   m_CullTransparentMesh: 1
+--- !u!1 &1249061019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249061021}
+  - component: {fileID: 1249061020}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1249061020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249061019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4dd4248eb5f9f47b7aac68702fee12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds: []
+--- !u!4 &1249061021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249061019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5272822, y: -3.5638716, z: 13.542886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284420231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,6 +6555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465221d5072d26340ac491170b09b1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMiddleMouseButtonHeldDown: 0
 --- !u!4 &1560093842
 Transform:
   m_ObjectHideFlags: 0

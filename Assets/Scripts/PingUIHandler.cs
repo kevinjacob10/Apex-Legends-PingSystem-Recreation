@@ -66,7 +66,7 @@ public class PingUIHandler : MonoBehaviour
         image.enabled = isOffScreen;
         distanceText.enabled = isOffScreen;
 
-        Debug.Log(distanceText.enabled);
+        //Debug.Log(distanceText.enabled);
         //image.gameObject.SetActive(isOffScreen);
         //distanceText.gameObject.SetActive(isOffScreen);
 
@@ -74,11 +74,11 @@ public class PingUIHandler : MonoBehaviour
         {
             //Debug.Log("Works");
             // Updates UI position
-            Vector3 fromPosition = Camera.main.transform.position;
+            Vector3 fromPosition = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2, 0);
             //fromPosition.z = 0f;
-            Vector3 dir = (pingTransform.position - fromPosition).normalized;
+            Vector3 dir = (pingScreenCoordinates - fromPosition).normalized;
 
-            float uiRadius = 270f;
+            float uiRadius = 450f;
             rectTransform.anchoredPosition = dir * uiRadius;
 
 

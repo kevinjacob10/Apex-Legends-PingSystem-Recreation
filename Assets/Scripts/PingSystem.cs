@@ -54,6 +54,7 @@ public static class PingSystem
     //Destroys ping
     public static void DestroyPing(Ping ping)
     {
+        if (ping == null) return;
         ping.SelfDestroy();
         pingList.Remove(ping);
     }

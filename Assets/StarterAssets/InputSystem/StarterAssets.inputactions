@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Enemy Ping",
+                    "type": "Button",
+                    "id": "7329e3a8-3b69-4aef-a00c-fe0fe5edffce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -312,17 +320,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9e525740-0ef3-497b-8cf9-cff85fe9128b",
-                    "path": "<Keyboard>/f",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Ping",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2989f730-5025-4c21-b2e5-704704783cc1",
                     "path": "<Mouse>/middleButton",
                     "interactions": "Press",
@@ -351,6 +348,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Ping Wheel Released",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7cd021c-43e9-4006-917a-c9e42fe99145",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Enemy Ping",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

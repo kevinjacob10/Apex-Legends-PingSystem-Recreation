@@ -170,6 +170,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -229,6 +230,7 @@ namespace StarterAssets
 			{
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+				//FindObjectOfType<AudioManager>().Play("Running");
 			}
 		}
 

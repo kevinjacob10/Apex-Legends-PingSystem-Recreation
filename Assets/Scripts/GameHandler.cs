@@ -11,6 +11,7 @@ public class GameHandler : MonoBehaviour
     private InputActionReference actionReference;
 
     public bool isMiddleMouseButtonHeldDown;
+    public bool isEnemyPing;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class GameHandler : MonoBehaviour
         PingWheelReleasedStarterAssets pingWheelReleasedStarterAssetes = new PingWheelReleasedStarterAssets();
         pingWheelReleasedStarterAssetes.Enable();
         pingWheelReleasedStarterAssetes.Player.PingWheelReleased.performed += x => PingWheelReleased();
+        pingWheelReleasedStarterAssetes.Player.EnemyPing.performed += EnemyPing;
     }
     private void Update()
     {
@@ -50,6 +52,7 @@ public class GameHandler : MonoBehaviour
             PingSystem.PingButtonReleased();
             //Debug.Log("Middle mouse button is released");
         }
+
 
         //if (Mouse.current.middleButton.wasPressedThisFrame)
         //{
@@ -89,6 +92,7 @@ public class GameHandler : MonoBehaviour
     // Holds Middle Mouse button
     public void PingWheelPressed()
     {
+        PingWheel.IsVisibleStatic();
         isMiddleMouseButtonHeldDown = true;
         Debug.Log("Middle mouse button is held down");
     }
@@ -96,7 +100,29 @@ public class GameHandler : MonoBehaviour
     // Releases Middle mouse Button
     public void PingWheelReleased()
     {
-        isMiddleMouseButtonHeldDown = false; 
+        StartCoroutine(MusicWaitCoroutine(0.75f));
+        isMiddleMouseButtonHeldDown = false;
+        FindObjectOfType<AudioManager>().Play("Move_One");
+        PingWheel.HideStatic();
         Debug.Log("Middle mouse button is released");
     }
+
+    public void EnemyPing(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            StartCoroutine(MusicWaitCoroutine(2f));
+            isEnemyPing = true;
+            PingSystem.AddPing(new PingSystem.Ping(PingSystem.Ping.Type.Enemy, Mouse3D.GetMouseWorldPosition()));
+            FindObjectOfType<AudioManager>().Play("Enemy_One");
+            Debug.Log("Enemy Ping working");
+        }
+
+    }
+
+    IEnumerator MusicWaitCoroutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
+
 }

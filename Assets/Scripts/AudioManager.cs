@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
 	void Start()
 	{
 		//Play theme/ background music here
+		Play("Theme");
 	}
 
 	// Starts playing the Sound
@@ -68,5 +69,4 @@ public class AudioManager : MonoBehaviour
 
 		s.source.Stop();
 	}
-
 }

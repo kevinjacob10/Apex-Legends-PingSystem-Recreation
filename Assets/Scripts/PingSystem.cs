@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -32,6 +33,7 @@ public static class PingSystem
                 //Pings in succession
                 DestroyPing(lastPing);
                 AddPing(new Ping(Ping.Type.Enemy, position));
+
             }
             else
             {
@@ -75,14 +77,15 @@ public static class PingSystem
                 break;
 
                 case Ping.Type.Enemy:
-                //pingTransform.GetComponent<SpriteRenderer>().sprite = GameAssets.i.pingEnemySprite;
-               // pingTransform.Find("distanceText").GetComponent<TextMeshPro>().color = GameAssets.i.pingEnemyColour;
+                pingTransform.GetComponent<SpriteRenderer>().sprite = GameAssets.i.pingEnemySprite;
+                //pingTransform.Find("distanceText").GetComponent<TextMeshProUGUI>().color = GameAssets.i.pingEnemyColour;
                 break;
 
         }
 
         ping.OnDestroyed += delegate (object sender, EventArgs e)
         {
+            if (pingTransform == null) return;
             UnityEngine.Object.Destroy(pingTransform.gameObject);
         };
 

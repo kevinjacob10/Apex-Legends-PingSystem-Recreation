@@ -89,6 +89,14 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""Enemy Ping"",
+                    ""type"": ""Button"",
+                    ""id"": ""7329e3a8-3b69-4aef-a00c-fe0fe5edffce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -325,17 +333,6 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e525740-0ef3-497b-8cf9-cff85fe9128b"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Ping"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""2989f730-5025-4c21-b2e5-704704783cc1"",
                     ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": ""Press"",
@@ -364,6 +361,17 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Ping Wheel Released"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7cd021c-43e9-4006-917a-c9e42fe99145"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Enemy Ping"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -431,6 +439,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
         m_Player_Ping = m_Player.FindAction("Ping", throwIfNotFound: true);
         m_Player_PingWheel = m_Player.FindAction("Ping Wheel", throwIfNotFound: true);
         m_Player_PingWheelReleased = m_Player.FindAction("Ping Wheel Released", throwIfNotFound: true);
+        m_Player_EnemyPing = m_Player.FindAction("Enemy Ping", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -489,6 +498,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
     private readonly InputAction m_Player_Ping;
     private readonly InputAction m_Player_PingWheel;
     private readonly InputAction m_Player_PingWheelReleased;
+    private readonly InputAction m_Player_EnemyPing;
     public struct PlayerActions
     {
         private @PingWheelReleasedStarterAssets m_Wrapper;
@@ -502,6 +512,7 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
         public InputAction @Ping => m_Wrapper.m_Player_Ping;
         public InputAction @PingWheel => m_Wrapper.m_Player_PingWheel;
         public InputAction @PingWheelReleased => m_Wrapper.m_Player_PingWheelReleased;
+        public InputAction @EnemyPing => m_Wrapper.m_Player_EnemyPing;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +549,9 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                 @PingWheelReleased.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPingWheelReleased;
                 @PingWheelReleased.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPingWheelReleased;
                 @PingWheelReleased.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPingWheelReleased;
+                @EnemyPing.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPing;
+                @EnemyPing.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPing;
+                @EnemyPing.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEnemyPing;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -569,6 +583,9 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
                 @PingWheelReleased.started += instance.OnPingWheelReleased;
                 @PingWheelReleased.performed += instance.OnPingWheelReleased;
                 @PingWheelReleased.canceled += instance.OnPingWheelReleased;
+                @EnemyPing.started += instance.OnEnemyPing;
+                @EnemyPing.performed += instance.OnEnemyPing;
+                @EnemyPing.canceled += instance.OnEnemyPing;
             }
         }
     }
@@ -620,5 +637,6 @@ public class @PingWheelReleasedStarterAssets : IInputActionCollection, IDisposab
         void OnPing(InputAction.CallbackContext context);
         void OnPingWheel(InputAction.CallbackContext context);
         void OnPingWheelReleased(InputAction.CallbackContext context);
+        void OnEnemyPing(InputAction.CallbackContext context);
     }
 }

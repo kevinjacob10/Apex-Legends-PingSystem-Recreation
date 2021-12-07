@@ -39,8 +39,8 @@ public class PingUIHandler : MonoBehaviour
             case PingSystem.Ping.Type.Move:
                 break;
             case PingSystem.Ping.Type.Enemy:
-                // image.sprite = GameAssets.i.pingEnemySprite;
-                // distanceText.color = GameAssets.i.pingEnemyColour;
+                image.sprite = GameAssets.i.pingEnemySprite;
+                distanceText.color = GameAssets.i.pingEnemyColour;
                 break;
         }
         ping.OnDestroyed += delegate (object sender, System.EventArgs e)
